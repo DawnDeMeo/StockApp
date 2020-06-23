@@ -5,7 +5,7 @@ Source code for StockApp, based on final project for Java Development Certificat
 Please run PopulateTablesWithData before running SimpleStocksUi to ensure
 the tables are created and contain the correct field names.
 
-The Resources folder contains a sample stock_info.xml file to use to test
+The resources folder contains a sample stock_info.xml file which can be used to test
 option 4 - uploading an XML file to the local db.
 
 ## Limitations
