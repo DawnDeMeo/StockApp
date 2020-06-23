@@ -25,7 +25,7 @@ public class WebStockService implements StockService {
 
     // UniBit
     final String UB_KEY = "RAM95l26_6Rv5iNFKtO_TVWNBKf_nMSA";
-    final String UB_BASE_URL_LATEST = "https://api.unibit.ai/v2/stock/realtime/";
+    final String UB_BASE_URL_LATEST = "https://api.unibit.ai/api/realtimestock/";
     final String UB_BASE_URL_INTERVAL = "https://api.unibit.ai/v2/stock/historical/";
 
     /**
@@ -40,12 +40,8 @@ public class WebStockService implements StockService {
         StockQuoteDao stockQuote = new StockQuoteDao();
 
         // Build the query string
-        String queryString = UB_BASE_URL_LATEST + "?tickers=" + symbol +
-                // 3 day range accounts for lack of weekend data. Only most recent quote is retrieved.
-                "&startDate=" + LocalDate.now().minusDays(3) +
-                "&endDate=" + LocalDate.now() +
-                "&size=1&selectedFields=DATE,PRICE" +  // return only one data point containing date and price
-                "&accessKey=" + UB_KEY;
+        String queryString = UB_BASE_URL_LATEST + symbol +
+                "?size=1&AccessKey=" + UB_KEY;
 
         // Set up the connection to the online service
         try {
@@ -167,6 +163,6 @@ public class WebStockService implements StockService {
 
         // Parse relevant fields of JSON object
         JsonObject jsonObject = parseString(resultString).getAsJsonObject();
-        return jsonObject.getAsJsonObject("result_data").getAsJsonArray(symbol.toUpperCase());
+        return jsonObject.getAsJsonArray("Realtime Stock price");
     }
 }
