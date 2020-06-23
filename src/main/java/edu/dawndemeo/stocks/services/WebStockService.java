@@ -24,7 +24,7 @@ import static com.google.gson.JsonParser.parseString;
 public class WebStockService implements StockService {
 
     // UniBit
-    final String UB_KEY = "FrtH-jAVQ9Sq3BdwpH9sFxdK_cmmvERU";
+    final String UB_KEY = "RAM95l26_6Rv5iNFKtO_TVWNBKf_nMSA";
     final String UB_BASE_URL_LATEST = "https://api.unibit.ai/v2/stock/realtime/";
     final String UB_BASE_URL_INTERVAL = "https://api.unibit.ai/v2/stock/historical/";
 
