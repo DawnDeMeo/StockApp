@@ -12,9 +12,9 @@
         <property name="hibernate.connection.password">some_pass</property>
         <property name="hibernate.show_sql">false</property>
 
-        <mapping class="edu.dawndemeo.stocks.datamodels.PersonDao"/>
-        <mapping class="edu.dawndemeo.stocks.datamodels.UserStocksDao"/>
-        <mapping class="edu.dawndemeo.stocks.datamodels.StockQuoteDao"/>
+        <mapping class="com.dawndemeo.stocks.datamodels.PersonDao"/>
+        <mapping class="com.dawndemeo.stocks.datamodels.UserStocksDao"/>
+        <mapping class="com.dawndemeo.stocks.datamodels.StockQuoteDao"/>
 
     </session-factory>
 </hibernate-configuration>
