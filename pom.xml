@@ -2,7 +2,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.uml.dawndemeo</groupId>
-	<artifactId>info303</artifactId>
+	<artifactId>stocksapp</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>StocksApp</name>
