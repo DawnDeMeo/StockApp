@@ -155,19 +155,16 @@ public class WebStockService implements StockService {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
         // Store results in a string
-        StringBuffer resultStringBuffer = new StringBuffer();
+        StringBuilder resultStringBuilder = new StringBuilder();
         String line = reader.readLine();
         while (line != null) {
-            resultStringBuffer.append(line);
+            resultStringBuilder.append(line);
             line = reader.readLine();
         }
 
-        String resultString = resultStringBuffer.toString();
+        String resultString = resultStringBuilder.toString();
 
-
-        // Parse relevant fields of JSON object
-        JsonObject jsonObject = parseString(resultString).getAsJsonObject();
-        return jsonObject;
-//        return jsonObject.getAsJsonArray("Realtime Stock price");
+        // Parse String to JSON object
+        return parseString(resultString).getAsJsonObject();
     }
 }
