@@ -45,7 +45,8 @@ public class WebStockService implements StockService {
 
         // Set up the connection to the online service
         try {
-            JsonArray resultData = getWebQueryResultsAsJsonArray(symbol, queryString);
+            JsonArray resultData = getWebQueryResultsAsJsonObject(symbol, queryString)
+                    .getAsJsonArray("Realtime Stock price");
 
             if (resultData.size() > 0) {
                 JsonElement jsonElement = resultData.get(0);
@@ -98,13 +99,14 @@ public class WebStockService implements StockService {
                 "&interval=" + quoteInterval +
                 "&startDate=" + startDate.toString() +
                 "&endDate=" + endDate.toString() +
-                "&selectedFields=DATE,CLOSE&dataType=json" +
+                "&selectedFields=date,close&dataType=json" +
                 "&accessKey=" + UB_KEY;
 
         List<StockQuoteDao> stockQuotesList = new ArrayList<>();
 
         try {
-            JsonArray resultData = getWebQueryResultsAsJsonArray(symbol, queryString);
+            JsonArray resultData = getWebQueryResultsAsJsonObject(symbol, queryString)
+                    .getAsJsonObject("result_data").getAsJsonArray(symbol.toUpperCase());
 
             if (!(resultData == null)) {
 
@@ -137,14 +139,15 @@ public class WebStockService implements StockService {
 
 
     /**
-     * This helper method fetches the data from the URL query and returns the results as a JsonArray
+     * This helper method fetches the data from the URL query of the most recent data and returns
+     * the results as a JsonArray
      *
      * @param symbol the ticker symbol
      * @param queryString the URL being queried
      * @return a JsonArray with query results
      * @throws IOException if using method causes error
      */
-    private JsonArray getWebQueryResultsAsJsonArray(String symbol, String queryString) throws IOException {
+    private JsonObject getWebQueryResultsAsJsonObject(String symbol, String queryString) throws IOException {
         java.net.URL connectionUrl = new java.net.URL(queryString);
         InputStream stream = connectionUrl.openStream();
 
@@ -161,8 +164,10 @@ public class WebStockService implements StockService {
 
         String resultString = resultStringBuffer.toString();
 
+
         // Parse relevant fields of JSON object
         JsonObject jsonObject = parseString(resultString).getAsJsonObject();
-        return jsonObject.getAsJsonArray("Realtime Stock price");
+        return jsonObject;
+//        return jsonObject.getAsJsonArray("Realtime Stock price");
     }
 }
