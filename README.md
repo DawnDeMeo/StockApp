@@ -1,5 +1,5 @@
 # StockApp
-Source code for StockApp, based on final project for Java Development Certification.
+This application was created for my final project toward my certificate in Java Development at UMass Lowell. 
 A video demonstration can be viewed on [Youtube](https://youtu.be/R-iqtq5pAsw).
 
 ## Setup
