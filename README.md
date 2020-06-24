@@ -1,5 +1,6 @@
 # StockApp
 Source code for StockApp, based on final project for Java Development Certification.
+A video demonstration can be seen at https://youtu.be/R-iqtq5pAsw
 
 ## Setup
 Please run PopulateTablesWithData before running SimpleStocksUi to ensure
