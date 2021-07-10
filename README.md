@@ -2,6 +2,8 @@
 This application was created for my final project toward my certificate in Java Development at UMass Lowell. 
 A video demonstration can be viewed on [Youtube](https://youtu.be/R-iqtq5pAsw).
 
+[![StockApp Demo on Youtube](https://img.youtube.com/vi/R-iqtq5pAsw/maxresdefault.jpg)](https://www.youtube.com/watch?v=R-iqtq5pAsw)
+
 ## Setup
 Please run PopulateTablesWithData before running SimpleStocksUi to ensure
 the tables are created and contain the correct field names.
